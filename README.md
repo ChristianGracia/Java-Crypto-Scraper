@@ -1,27 +1,29 @@
 # Java-Financial-Web-Scraper
-This repo contains a web scraper written in Java using selenium that pulls stock data from yahoo finance using google chrome webdriver
-
-Built using a solo Agile enviroment
+This repo contains a web scraper written in Java that usese selenium to pull stock data from yahoo finance.
 
 
 
+Written by me in a solo Agile environment
 
-## agile log
 
-Day 1   11-5-2019
+
+
+## Agile Log
+
+**Day 1**   
+
+11-5-2019
 
 project init
 
-todo:
+### Stories/Goals:
 
-initial project set up
+Project Setup **Completed**
 
-hoping to get my scraper logging in to yahoo finance tonight
+Scraper Login **Completed**
 
-** completed **
 
 completed the stories I wanted to tonight, program started from scratch can now log in to my yahoo finace portfolio using chrome web browser with selenium
-
 
 
 
