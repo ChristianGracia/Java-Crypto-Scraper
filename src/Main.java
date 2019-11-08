@@ -6,6 +6,7 @@ public class Main {
 		Scraper scraper = new Scraper();
 		scraper.goToSignIn();
 		scraper.loginUser("cgscraper@yahoo.com", "chris42908!");
+		scraper.goToPortfolio();
 		scraper.quitDriver();
 	}
 }
