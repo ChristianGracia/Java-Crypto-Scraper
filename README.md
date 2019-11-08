@@ -14,17 +14,8 @@ https://trello.com/invite/b/4OX3sqsV/89934325f9715c339c353029c4e46525/scraper-ja
 
 All days where I have time to work on the project will be logged
 
-**Day 3**   
 
-
-### Stories/Goals:
-
-Portfolio Navigate **Completed**
-
-Spent most of my time today optimizing the code and deciding how I want to pull the coin data.
-
-
-**Day 1**   
+## **Day 1**   
 
 11-5-2019
 
@@ -35,6 +26,15 @@ project init
 Project Setup **Completed**
 
 Scraper Login **Completed**
+
+## **Day 3**   
+
+
+### Stories/Goals:
+
+Portfolio Navigate **Completed**
+
+Spent most of my time today optimizing the code and deciding how I want to pull the coin data.
 
 
 completed the stories I wanted to tonight, program started from scratch can now log in to my yahoo finace portfolio using chrome web browser with selenium
