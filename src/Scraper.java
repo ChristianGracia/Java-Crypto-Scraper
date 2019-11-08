@@ -30,6 +30,11 @@ public class Scraper {
     }
     public void goToPortfolio() {
     	driver.get("https://finance.yahoo.com/portfolio/p_0/view");
+    	
+    	 WebElement coinTable = driver.findElement(By.tagName("table"));
+         String tableText = coinTable.getText();
+		 System.out.println(tableText);
+    	
     
     }
     public void quitDriver() {
