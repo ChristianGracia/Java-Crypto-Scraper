@@ -10,9 +10,19 @@ Trello Agile Board:
 https://trello.com/invite/b/4OX3sqsV/89934325f9715c339c353029c4e46525/scraper-java
 
 
-
-
 ## Agile Log
+
+All days where I have time to work on the project will be logged
+
+**Day 3**   
+
+
+### Stories/Goals:
+
+Portfolio Navigate **Completed**
+
+Spent most of my time today optimizing the code and deciding how I want to pull the coin data.
+
 
 **Day 1**   
 
