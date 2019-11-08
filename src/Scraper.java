@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -28,14 +29,20 @@ public class Scraper {
         passwordField.sendKeys(Keys.ENTER);
     
     }
-    public void goToPortfolio() {
+    public void getPortFolioData() {
     	driver.get("https://finance.yahoo.com/portfolio/p_0/view");
     	
     	 WebElement coinTable = driver.findElement(By.tagName("table"));
          String tableText = coinTable.getText();
-		 System.out.println(tableText);
-    	
-    
+         
+         String[] coinArray = manipulateData(tableText);
+         System.out.println(Arrays.toString(coinArray));
+    }
+    private String[] manipulateData(String tableText) {
+    	 
+		 String coinInfo = tableText.substring(tableText.indexOf("BAT-USD")).replace("Trade", "").replace("-","").replace("\n\n", "\n").replace("USD\n", "USD ").replace("  ", " ");
+		 String[] coinInfoArray = coinInfo.split("\n");
+		 return coinInfoArray;
     }
     public void quitDriver() {
         driver.quit();
