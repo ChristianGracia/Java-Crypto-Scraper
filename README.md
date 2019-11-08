@@ -27,6 +27,8 @@ Project Setup **Completed**
 
 Scraper Login **Completed**
 
+completed the stories I wanted to tonight, program started from scratch can now log in to my yahoo finace portfolio using chrome web browser with selenium
+
 ## **Day 3**   
 
 
@@ -37,7 +39,16 @@ Portfolio Navigate **Completed**
 Spent most of my time today optimizing the code and deciding how I want to pull the coin data.
 
 
-completed the stories I wanted to tonight, program started from scratch can now log in to my yahoo finace portfolio using chrome web browser with selenium
+## **Day 4**   
+
+Been traveling so I haven't had much time.
+
+### Stories/Goals:
+
+Coin price data pull **Completed**
+Data convert to array for db injec **Conpleted**
+
+working on sql db injection next
 
 
 
