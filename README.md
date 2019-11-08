@@ -5,6 +5,10 @@ This repo contains a web scraper written in Java that usese selenium to pull sto
 
 Written by me in a solo Agile environment
 
+Trello Agile Board:
+
+https://trello.com/invite/b/4OX3sqsV/89934325f9715c339c353029c4e46525/scraper-java
+
 
 
 
