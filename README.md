@@ -63,9 +63,18 @@ set up sql db and made scraper able to inject hardcoded data.
 
 Will try to complete scraper pull db injection tonight
 
+
+
 inject scraped data into db **Completed**
 
 Scraper can now inject the data it scrapes into db
+
+## **Day 7**
+
+
+### Stories/Goals:
+
+Front-End
 
 
 
