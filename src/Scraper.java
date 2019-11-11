@@ -20,11 +20,9 @@ public class Scraper {
         userNameField.sendKeys(user);
         userNameField.submit();
         
-        
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         
         WebElement passwordField = driver.findElement(By.cssSelector("input[id='login-passwd']"));
- 
         passwordField.sendKeys(password);
         passwordField.sendKeys(Keys.ENTER);
     
@@ -34,13 +32,19 @@ public class Scraper {
     	
     	 WebElement coinTable = driver.findElement(By.tagName("table"));
          String tableText = coinTable.getText();
-         
          String[] coinArray = manipulateData(tableText);
          System.out.println(Arrays.toString(coinArray));
     }
     private String[] manipulateData(String tableText) {
     	 
-		 String coinInfo = tableText.substring(tableText.indexOf("BAT-USD")).replace("Trade", "").replace("-","").replace("\n\n", "\n").replace("USD\n", "USD ").replace("  ", " ");
+    	 System.out.println(tableText);
+		 String coinInfo = tableText.substring(tableText.indexOf("BAT-USD"))
+				 .replace("Trade", "")
+				 .replace("-","")
+				 .replace("\n\n", "\n")
+				 .replace("USD\n", "USD ")
+				 .replace("  ", " ");
+		 
 		 String[] coinInfoArray = coinInfo.split("\n");
 		 return coinInfoArray;
     }
