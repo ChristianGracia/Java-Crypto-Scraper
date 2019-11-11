@@ -47,7 +47,7 @@ Been traveling so I haven't had much time.
 
 Coin price data pull **Completed**
 
-Data convert to array for db injec **Conpleted**
+Data convert to array for db injec **Completed**
 
 working on sql db injection next
 
