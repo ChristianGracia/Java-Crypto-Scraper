@@ -57,11 +57,15 @@ back from vacation
 
 ### Stories/Goals:
 
-sql db setup **completed**
+sql db setup **Completed**
 
 set up sql db and made scraper able to inject hardcoded data.
 
 Will try to complete scraper pull db injection tonight
+
+inject scraped data into db **Completed**
+
+Scraper can now inject the data it scrapes into db
 
 
 
