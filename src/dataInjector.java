@@ -1,31 +1,50 @@
 import java.sql.*;
+import java.util.Arrays;
 
 public class dataInjector {
 	
-	public static void injectData() {
+	public static void injectData(String[] data) {
 
 		    try
 		    {
-
 		      Class.forName("com.mysql.cj.jdbc.Driver");
 		
 		  	  Connection conn=null;
 		      conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/CryptoScraper", "root", "Christian12!");
 	
 		      String query = " insert into CoinInfo (CoinName, Price, PercentChange, PriceChange, MarketTime, MarketCap, Volume)"
-		        + " values (?, ?, ?, ?, ?, ?, ?)";
-		      
-		      PreparedStatement preparedStmt = conn.prepareStatement(query);
-		      preparedStmt.setString (1, "taylor");
-		      preparedStmt.setString (2, "23000");
-		      preparedStmt.setString (3, "7.65%");
-		      preparedStmt.setString (4, "-3000");
-		      preparedStmt.setString (5, "12:34PM");
-		      preparedStmt.setString (6, "300M");
-		      preparedStmt.setString (7, "40m");
+		        + " values (?, ?, ?, ?, ?, ?, ?)"; 
 
-		 
-		      preparedStmt.execute();
+		      for(String item : data) {
+		    	  String[] valueArray = item.split(" ");
+		    	  System.out.println(Arrays.toString(valueArray));
+		    	  
+		    	    PreparedStatement preparedStmt = conn.prepareStatement(query);
+		    	    
+		    	      //coin name
+				      preparedStmt.setString (1, valueArray[0]);
+				      
+				      //coin price
+				      preparedStmt.setString (2, valueArray[1]);
+				      
+				      //coin percent change
+				      preparedStmt.setString (3, valueArray[3]);
+				      
+				      //coin price change
+				      preparedStmt.setString (4, valueArray[2]);
+				      
+				      //time
+				      preparedStmt.setString (5, valueArray[5]);
+				      
+				      //market cap
+				      preparedStmt.setString (6, valueArray[9]);
+				      
+				      //volume
+				      preparedStmt.setString (7, valueArray[7]);
+
+				      preparedStmt.execute();
+		      }
+		      
 		      
 		      conn.close();
 		    }
@@ -36,6 +55,5 @@ public class dataInjector {
 		    }
 		  
 		}
-	
 
 }
