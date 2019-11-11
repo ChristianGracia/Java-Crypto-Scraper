@@ -34,7 +34,7 @@ public class Scraper {
          String tableText = coinTable.getText();
          String[] coinArray = manipulateData(tableText);
          System.out.println(Arrays.toString(coinArray));
-     	 dataInjector.injectData(coinArray);
+     	 DataInjector.injectData(coinArray);
     }
     private String[] manipulateData(String tableText) {
     	 
