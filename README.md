@@ -51,7 +51,7 @@ Data convert to array for db injec **Conpleted**
 
 working on sql db injection next
 
-## **Day 7**
+## **Day 6**
 
 back from vacation
 
