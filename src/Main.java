@@ -8,5 +8,9 @@ public class Main {
 		scraper.loginUser("cgscraper@yahoo.com", "chris42908!");
 		scraper.getPortFolioData();
 		scraper.quitDriver();
+		
+		dataInjector.injectData();
+		
+		
 	}
 }
