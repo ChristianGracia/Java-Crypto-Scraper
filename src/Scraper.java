@@ -34,6 +34,7 @@ public class Scraper {
          String tableText = coinTable.getText();
          String[] coinArray = manipulateData(tableText);
          System.out.println(Arrays.toString(coinArray));
+     	 dataInjector.injectData(coinArray);
     }
     private String[] manipulateData(String tableText) {
     	 
@@ -43,7 +44,8 @@ public class Scraper {
 				 .replace("-","")
 				 .replace("\n\n", "\n")
 				 .replace("USD\n", "USD ")
-				 .replace("  ", " ");
+				 .replace("  ", " ")
+				 .replace("+", "");
 		 
 		 String[] coinInfoArray = coinInfo.split("\n");
 		 return coinInfoArray;
