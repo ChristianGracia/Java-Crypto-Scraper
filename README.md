@@ -46,9 +46,22 @@ Been traveling so I haven't had much time.
 ### Stories/Goals:
 
 Coin price data pull **Completed**
+
 Data convert to array for db injec **Conpleted**
 
 working on sql db injection next
+
+## **Day 7**
+
+back from vacation
+
+### Stories/Goals:
+
+sql db setup
+
+
+
+
 
 
 
