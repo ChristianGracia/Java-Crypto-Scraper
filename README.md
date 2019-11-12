@@ -78,6 +78,8 @@ scraper fully functional, logs into yahoo finance and navigates to my porfolio w
 
 Front-End
 
+Mostly Planning today
+
 
 
 
