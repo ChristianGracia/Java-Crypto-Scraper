@@ -9,13 +9,24 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Scraper {
 
-    public WebDriver driver = new ChromeDriver();
+    private WebDriver driver = new ChromeDriver();
+    
+    static void scrapeData() {
+    	
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\chris\\Downloads\\chromedriver_win32-78\\chromedriver.exe");
+		Scraper scraper = new Scraper();
+		scraper.goToSignIn();
+		scraper.loginUser("cgscraper@yahoo.com", "chris42908!");
+		scraper.getPortfolioData();
+		scraper.quitDriver();	
+    	
+    }
 
-    public void goToSignIn() {
+    private void goToSignIn() {
    
         driver.get("https://login.yahoo.com/config/login?.intl=us&.lang=en-US&.src=finance&.done=https%3A%2F%2Ffinance.yahoo.com%2Fportfolios");
     }
-    public void loginUser(String user, String password) {
+    private void loginUser(String user, String password) {
         WebElement userNameField = driver.findElement(By.id("login-username"));
         userNameField.sendKeys(user);
         userNameField.submit();
@@ -27,7 +38,7 @@ public class Scraper {
         passwordField.sendKeys(Keys.ENTER);
     
     }
-    public void getPortFolioData() {
+    private void getPortfolioData() {
     	driver.get("https://finance.yahoo.com/portfolio/p_0/view");
     	
     	 WebElement coinTable = driver.findElement(By.tagName("table"));
@@ -50,7 +61,7 @@ public class Scraper {
 		 String[] coinInfoArray = coinInfo.split("\n");
 		 return coinInfoArray;
     }
-    public void quitDriver() {
+    private void quitDriver() {
         driver.quit();
     }
 }

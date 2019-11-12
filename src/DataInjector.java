@@ -48,7 +48,6 @@ public class DataInjector {
 
     preparedStmt.setDate(8, date);
 
-
     preparedStmt.execute();
    }
 
