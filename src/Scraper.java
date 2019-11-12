@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class Scraper {
+ public class Scraper {
 
     private WebDriver driver = new ChromeDriver();
     
@@ -31,7 +31,7 @@ public class Scraper {
         userNameField.sendKeys(user);
         userNameField.submit();
         
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         
         WebElement passwordField = driver.findElement(By.cssSelector("input[id='login-passwd']"));
         passwordField.sendKeys(password);
@@ -39,24 +39,25 @@ public class Scraper {
     
     }
     private void getPortfolioData() {
-    	driver.get("https://finance.yahoo.com/portfolio/p_0/view");
+    	 driver.get("https://finance.yahoo.com/portfolio/p_0/view");
     	
     	 WebElement coinTable = driver.findElement(By.tagName("table"));
          String tableText = coinTable.getText();
          String[] coinArray = manipulateData(tableText);
-         System.out.println(Arrays.toString(coinArray));
+         
      	 DataInjector.injectData(coinArray);
     }
     private String[] manipulateData(String tableText) {
-    	 
-    	 System.out.println(tableText);
+
 		 String coinInfo = tableText.substring(tableText.indexOf("BAT-USD"))
 				 .replace("Trade", "")
-				 .replace("-","")
 				 .replace("\n\n", "\n")
 				 .replace("USD\n", "USD ")
 				 .replace("  ", " ")
-				 .replace("+", "");
+				 .replace(" - ", " ")
+				 .replace("M -", "M")
+				 .replace("B -", "B");
+		 
 		 
 		 String[] coinInfoArray = coinInfo.split("\n");
 		 return coinInfoArray;
