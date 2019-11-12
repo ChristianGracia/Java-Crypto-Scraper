@@ -14,6 +14,11 @@ public class DataInjector {
 
    String query = " insert into CoinInfo (CoinName, Price, PercentChange, PriceChange, MarketTime, MarketCap, Volume, ScrapeDate)" +
     " values (?, ?, ?, ?, ?, ?, ?, ?)";
+   
+   
+   //print to console
+   java.util.Date time = new java.util.Date();
+   System.out.println("Scrape Sucessful Time: " + time + " coin data injected to db\n");
 
    for (String item: data) {
     String[] valueArray = item.split(" ");
@@ -47,7 +52,7 @@ public class DataInjector {
     java.sql.Date date = new java.sql.Date(millis);
 
     preparedStmt.setDate(8, date);
-
+    
     preparedStmt.execute();
    }
 
