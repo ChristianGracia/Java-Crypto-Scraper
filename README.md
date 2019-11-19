@@ -76,7 +76,7 @@ scraper fully functional, logs into yahoo finance and navigates to my porfolio w
 
 ### Stories/Goals:
 
-Front-End **
+Front-End
 
 Mostly Planning today
 
