@@ -9,17 +9,21 @@ const NavBar = () => (
   >
     <div className="options">
       <Link className="option m-auto" to="/services">
-        Services
+        Coin Prices
       </Link>
       <div style={{ padding: 20 }}></div>
 
       <Link className="option m-auto" to="/about">
-        About
+        All Scrapes
       </Link>
       <div style={{ padding: 20 }}></div>
 
       <Link className="option m-auto" to="/contact">
-        Contact
+        About
+      </Link>
+      <div style={{ padding: 20 }}></div>
+      <Link className="option m-auto" to="/contact">
+        Login
       </Link>
     </div>
   </div>
