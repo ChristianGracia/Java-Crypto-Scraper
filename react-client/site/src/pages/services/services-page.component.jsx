@@ -13,9 +13,7 @@ class ServicePage extends React.Component {
     fetch("http://localhost:8080/all")
       .then(response => response.json())
       .then(jsonData => {
-        // console.log(jsonData);
         this.setState({ coinArr: jsonData });
-        console.log(this.state.coinArr);
       })
       .catch(error => {
         console.error(error);
@@ -25,7 +23,14 @@ class ServicePage extends React.Component {
   render() {
     return (
       <div>
-        <p style={{ fontWeight: "bold", textAlign: "center", fontSize: 40 }}>
+        <p
+          style={{
+            fontWeight: "bold",
+            textAlign: "center",
+            fontSize: 40,
+            color: "#D4AF37"
+          }}
+        >
           All scrapes <i class="fab fa-bitcoin"></i>
         </p>
 
