@@ -12,7 +12,7 @@ public class DataInjector {
    Connection conn = null;
    conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/CryptoScraper", "root", "Christian12!");
 
-   String query = " insert into CoinInfo (CoinName, Price, PercentChange, PriceChange, MarketTime, MarketCap, Volume, ScrapeDate)" +
+   String query = " insert into coin_info (coin_name, price, price_change_percent, price_change, market_time, market_cap, volume, scrape_date)" +
     " values (?, ?, ?, ?, ?, ?, ?, ?)";
    
    
