@@ -95,6 +95,13 @@ can now retrieve all coin prices and display them on a spring boot assisted html
 
 Will try to complete my scraper the next few days
 
+Java API backend **Completed**
+
+React front end connected  **Completed**
+
+
+React front end connected with Java Api I made and receiving all data from my sql db in json and displaying on front end
+
 
 
 
