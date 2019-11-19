@@ -76,9 +76,23 @@ scraper fully functional, logs into yahoo finance and navigates to my porfolio w
 
 ### Stories/Goals:
 
-Front-End
+Front-End **
 
 Mostly Planning today
+
+
+## **Day 14**
+
+Very busy week for me, I have just been deciding what I want to do for the front end (react front-end with a java back end api endpoint or java web app)
+
+### Stories/Goals
+
+retrieve data from database in java **Completed**
+
+can now retrieve all coin prices and display them on a spring boot assisted html page through java
+
+Will try to complete my scraper the next few days
+
 
 
 
