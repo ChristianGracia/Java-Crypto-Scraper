@@ -1,0 +1,21 @@
+.header {
+  height: 10vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  margin-bottom: 13px;
+
+  .options {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    text-decoration: none;
+    font-family: "Titillium Web", sans-serif;
+
+    .option {
+      text-decoration: none;
+    }
+  }
+}

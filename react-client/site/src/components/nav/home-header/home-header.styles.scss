@@ -1,0 +1,14 @@
+.home-header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  .option {
+    text-decoration: none;
+  }
+}
+.logo {
+  background-size: contain;
+  width: 10vw;
+  min-width: 170px;
+}
