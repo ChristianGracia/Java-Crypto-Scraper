@@ -111,6 +111,7 @@ React front end connected with Java Api I made and receiving all data from my sq
 Setting up front end
 
 Homepage **Completed**
+Register Page **completed**
 
 
 
