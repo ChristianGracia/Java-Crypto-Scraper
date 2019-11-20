@@ -1,5 +1,9 @@
 import React from "react";
-
 import "./homepage.styles.scss";
-const HomePage = () => <div className="homepage"></div>;
+import Login from "../../components/login/login.component";
+const HomePage = () => (
+  <div className="homepage">
+    <Login />
+  </div>
+);
 export default HomePage;
