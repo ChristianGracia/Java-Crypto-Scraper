@@ -1,31 +1,34 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./navbar.styles.scss";
+import { Nav, Navbar } from "react-bootstrap";
 
 const NavBar = () => (
-  <div
-    className="header"
-    style={{ paddingTop: 10, flex: 1, flexDirection: "row" }}
-  >
-    <div className="options">
-      <Link className="option m-auto" to="/services">
-        Coin Prices
-      </Link>
-      <div style={{ padding: 20 }}></div>
+  <div>
+    <Navbar style={{ backgroundColor: "transparent" }}>
+      <Navbar.Brand href="/" style={{ color: "#F8F141" }}>
+        Home{" "}
+        <i
+          className="fab fa-bitcoin fa-spin"
+          style={{
+            fontSize: 20,
+            color: "#F8F141",
+            marginTop: 4,
+            positon: "absolute",
+            float: "top"
+          }}
+        ></i>
+      </Navbar.Brand>
 
-      <Link className="option m-auto" to="/about">
-        All Scrapes
-      </Link>
-      <div style={{ padding: 20 }}></div>
-
-      <Link className="option m-auto" to="/contact">
-        About
-      </Link>
-      <div style={{ padding: 20 }}></div>
-      <Link className="option m-auto" to="/contact">
-        Login
-      </Link>
-    </div>
+      <Nav className="ml-auto">
+        <Nav.Link href="/work" style={{ color: "white" }}>
+          Login
+        </Nav.Link>
+        <Nav.Link href="/about" style={{ color: "white" }}>
+          About
+        </Nav.Link>
+      </Nav>
+    </Navbar>
   </div>
 );
 
