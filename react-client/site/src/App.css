@@ -1,12 +1,13 @@
 body {
   background-color: #949597;
   font-family: "Work Sans", sans-serif;
-  padding: 3px 30px 5px 30px;
+  padding: 0px 30px 0px 30px;
   width: 100%;
 }
 a {
   color: #000;
   font-weight: bold;
+  font-style: none;
 }
 .app {
   flex: 1;

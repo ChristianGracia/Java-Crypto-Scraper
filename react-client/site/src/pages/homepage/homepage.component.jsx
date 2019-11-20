@@ -1,30 +1,43 @@
 import React from "react";
 import "./homepage.styles.scss";
 import Login from "../../components/login/login.component";
-import { Button } from "react-bootstrap";
 import ParticleSmall from "../../components/common/particle/particle.component";
 
 const HomePage = () => (
-  <div className="homepage" style={{ flexDirection: "column" }}>
-    <h1 style={{ textAlign: "center", marginTop: 40 }}>CG SCRAPER </h1>
+  <div
+    className="homepage"
+    style={{
+      flexDirection: "column"
+    }}
+  >
+    <span
+      style={{
+        textAlign: "center",
+        fontWeight: "bold",
+        color: "#F8F141",
+        fontSize: 30
+      }}
+    >
+      Crypto Scraper
+    </span>
     <div
       style={{
         textAlign: "center",
         display: "flex",
         flexDirection: "row",
-        justifyContent: "center"
+        justifyContent: "space-between"
       }}
     >
-      <a href="/about">About this site</a>
-      <div style={{ padding: 10 }}></div>
-      <a href="http://www.christiangracia.com">christiangracia.com</a>
+      <div className="m-auto">
+        <span style={{ color: "#7EFF00" }}>Powered by Java + React</span>
+      </div>
     </div>
 
     <div style={{ padding: "1vh" }}></div>
     <div className="m-auto" style={{ width: 320 }}>
       <ParticleSmall />
     </div>
-    <p style={{ textAlign: "center" }}>
+    <p style={{ textAlign: "center", color: "white", fontWeight: "bold" }}>
       Sign in to view crypto coin data{" "}
       <i
         className="fab fa-bitcoin fa-spin"
@@ -43,12 +56,16 @@ const HomePage = () => (
       style={{ display: "flex", flexDirection: "column" }}
     >
       <div style={{ textAlign: "center" }}>
-        <span>
+        <span style={{ color: "white", fontWeight: "bold" }}>
           Don't have an account?{" "}
-          <a href="/register">
-            <span style={{ color: "red" }}>Click to register</span>
-          </a>
         </span>
+      </div>
+      <div style={{ textAlign: "center" }}>
+        <a href="/register">
+          <span style={{ color: "red", fontWeight: "bold" }}>
+            Click to register
+          </span>
+        </a>
       </div>
     </div>
   </div>
