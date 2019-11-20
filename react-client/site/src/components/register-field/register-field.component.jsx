@@ -21,24 +21,21 @@ class RegisterField extends React.Component {
   onSubmit(e) {
     e.preventDefault();
     if (this.state.password === this.state.password2) {
-      const userData = {
-        user: this.state.user,
-        password: this.state.password
+      var url = new URL("http://localhost:8080/create");
+
+      const options = {
+        method: "post",
+        accepts: new Headers({ "content-type": "application/json" })
       };
 
-      var url = new URL("https://localhost:8080/create");
+      options.body = [this.state.user, this.state.password];
 
-      // Object.keys(userData).forEach(key =>
-      //   url.searchParams.append(key, userData[key])
-      // );
+      (async () => {
+        const rawResponse = await fetch(url, options);
 
-      fetch(url, {
-        method: "post",
-        body: {
-          user: this.state.user,
-          password: this.state.password
-        }
-      });
+        const content = await rawResponse.json();
+        console.log(content);
+      })();
     } else {
       alert("passwords don't match");
     }
