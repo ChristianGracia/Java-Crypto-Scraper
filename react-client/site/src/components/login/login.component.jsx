@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import TextInput from "../../components/common/text-input/text-input.component";
+import { Button } from "react-bootstrap";
 
 class Login extends Component {
   constructor() {
@@ -27,10 +28,7 @@ class Login extends Component {
       <div className="login">
         <div className="container">
           <div className="row">
-            <div className="col-lg m-auto">
-              <p className="lead text-center">
-                Sign in to view crypto coin data
-              </p>
+            <div className="col-xs m-auto">
               <form onSubmit={this.onSubmit}>
                 <TextInput
                   placeholder="Username"
@@ -48,7 +46,11 @@ class Login extends Component {
                   onChange={this.onChange}
                 />
 
-                <input type="submit" className="btn btn-info btn-block mt-4" />
+                <div style={{ display: "flex", justifyContent: "center" }}>
+                  <Button type="submit" variant="primary">
+                    Submit
+                  </Button>
+                </div>
               </form>
             </div>
           </div>
