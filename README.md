@@ -103,9 +103,14 @@ Java API backend **Completed**
 React front end connected  **Completed**
 
 
-React front end connected with Java Api I made and receiving all data from my sql db in json and displaying on front end
+React front end connected with Java Api I made and receiving all data from my sql db in json and displaying on front 5nd
 
 
+## **Day 15**
+
+Setting up front end
+
+Homepage **Completed**
 
 
 
