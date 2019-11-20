@@ -9,7 +9,7 @@ export default class ParticleSmall extends Component {
           params={{
             particles: {
               number: {
-                value: 20
+                value: 12
               },
               size: {
                 value: 3
