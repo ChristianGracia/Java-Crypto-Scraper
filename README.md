@@ -118,6 +118,12 @@ Register Page **completed**
 
 Breaking down stores more on trello board because they are too big.
 
+Broke down stories, 5 stories left to go till mvp
+
+### Stories/Goals
+
+Authentication
+
 
 
 
