@@ -111,7 +111,14 @@ React front end connected with Java Api I made and receiving all data from my sq
 Setting up front end
 
 Homepage **Completed**
+
 Register Page **completed**
+
+## **Day 16**
+
+Breaking down stores more on trello board because they are too big.
+
+
 
 
 
