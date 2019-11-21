@@ -47,7 +47,7 @@ class Login extends Component {
         console.log(content);
         if (content == true) {
           this.setState({ loggedIn: true });
-          window.location.href = "/services";
+          window.location.href = "/coins";
         } else {
           alert("Incorrect username or password");
         }

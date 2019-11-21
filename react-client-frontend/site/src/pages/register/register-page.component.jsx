@@ -23,6 +23,7 @@ const RegisterPage = () => (
       Register
     </span>
     <div className="m-auto" style={{ width: "50%" }}>
+      <div style={{ padding: 40 }}></div>
       <RegisterField />
     </div>
   </div>
