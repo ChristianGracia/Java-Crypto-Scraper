@@ -129,8 +129,11 @@ User can ask for a new scrape  **Completed**
 
 Scraper Integrated **Completed**
 
+Create account **Completed**
 
-Authentication
+Login **Completed**
+
+Store account info in sql db **Completed**
 
 
 
