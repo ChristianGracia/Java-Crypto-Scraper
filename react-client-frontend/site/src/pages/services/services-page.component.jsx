@@ -1,12 +1,13 @@
 import React from "react";
 import CoinItem from "../../components/common/coin-item/coin-item.component";
+import CoinQueries from "../../components/coin-queries/coin-queries.component";
 import { Button } from "react-bootstrap";
 
-class ServicePage extends React.Component {
+class ServicesPage extends React.Component {
   constructor() {
     super();
     this.state = {
-      coinArr: [],
+      coinArr: [0],
       counter: 0
     };
     this.handleClick.bind(this);
@@ -16,14 +17,14 @@ class ServicePage extends React.Component {
     // if (this.props.params.login != true) {
     //   this.props.history.push("/");
     // }
-    fetch("http://localhost:8080/all")
-      .then(response => response.json())
-      .then(jsonData => {
-        this.setState({ coinArr: jsonData });
-      })
-      .catch(error => {
-        console.error(error);
-      });
+    // fetch("http://localhost:8080/all")
+    //   .then(response => response.json())
+    //   .then(jsonData => {
+    //     this.setState({ coinArr: jsonData });
+    //   })
+    //   .catch(error => {
+    //     console.error(error);
+    //   });
   }
 
   handleClick = () => {
@@ -60,6 +61,8 @@ class ServicePage extends React.Component {
           </Button>
         </div>
 
+        <CoinQueries />
+
         {this.state.coinArr.map(({ ...otherProps }) => (
           <CoinItem key={this.state.counter} {...otherProps} />
         ))}
@@ -69,4 +72,4 @@ class ServicePage extends React.Component {
   }
 }
 
-export default ServicePage;
+export default ServicesPage;
