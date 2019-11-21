@@ -2,6 +2,7 @@ package com.cg.scraper.scraper;
 
 import java.sql.*;
 import java.util.Arrays;
+import java.util.Date;
 
 
 public class DataInjector {
@@ -49,18 +50,20 @@ public class DataInjector {
     
     preparedStmt.execute();
     
-    //print to console
-    java.util.Date time = new java.util.Date();
-    System.out.println("Scrape Sucessful Time: " + time + " coin data injected to db\n");
+  
 
    }
-
+   //print to console
+   java.util.Date time = new java.util.Date();
+   System.out.println("Scrape Sucessful Time: " + time + " coin data injected to db\n");
 
    conn.close();
   } catch (Exception e) {
    System.err.println("exception!");
    System.err.println(e.getMessage());
   }
+  
+  
 
  }
  
