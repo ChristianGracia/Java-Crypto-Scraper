@@ -1,8 +1,6 @@
 import React from "react";
 import TextInput from "../common/text-input/text-input.component";
 
-// import { withRouter, browserHistory } from "react-router";
-
 import { Button } from "react-bootstrap";
 class RegisterField extends React.Component {
   constructor() {
@@ -37,9 +35,9 @@ class RegisterField extends React.Component {
 
         const content = await response.json();
         console.log(content);
-
-        if (content != null && content.user != "") {
+        if (content) {
           window.location.href = "/";
+          console.log("success");
         } else {
           alert("Username in use");
         }

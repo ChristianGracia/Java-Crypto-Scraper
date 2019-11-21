@@ -67,7 +67,7 @@ public class DataInjector {
 
  }
  
- public static void injectUserData(String user, String password, String newUserQuery) {
+ public static Boolean injectUserData(String user, String password, String newUserQuery) {
 
 	  try {
 	   Class.forName("com.mysql.cj.jdbc.Driver");
@@ -96,9 +96,12 @@ public class DataInjector {
 		System.out.println("User creation Sucessful Time: " + time + " injected to db\n");
 
 	   conn.close();
+	   
+	   return true;
 	  } catch (Exception e) {
 	   System.err.println("exception!");
 	   System.err.println(e.getMessage());
+	   return false;
 	  }
 
 	 }
