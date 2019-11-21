@@ -10,14 +10,15 @@ class CoinQueries extends Component {
       sections: [
         {
           title: "Search by Coin",
-          imageUrl: "https://i.redd.it/kxfcoubfc2gz.jpg",
+          imageUrl:
+            "https://www.stratfor.com/sites/default/files/styles/article_large/public/cryptocurrency-gulf-display-shutterstock-1028639176.png?itok=7ZpbB1s0",
           id: 3,
           linkUrl: "/single-coin"
         },
         {
           title: "All Scrapes",
           imageUrl:
-            "https://www.kangol.com/media/wysiwyg/kangol/homepage/blocks/ss19/SS19_MOBILE_MEN.jpg",
+            "https://miro.medium.com/max/1024/1*TY0eUcLT6us5Jz1VT1Tymg.jpeg",
           id: 1,
           linkUrl: "/all-scrapes"
         }

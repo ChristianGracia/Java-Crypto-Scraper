@@ -38,5 +38,14 @@ public class CoinController {
 	      
 	    }
 	   
+	   @CrossOrigin(origins = "http://localhost:3000")
+	   @GetMapping("/single")
+	   public List<CoinInfo> getSingleCoin() {
+		   
+	        List<CoinInfo> items = new ArrayList<>();
+	        coinRepository.findAll().forEach(items :: add);
+	        return items;
+	    }
+	   
 
 }
