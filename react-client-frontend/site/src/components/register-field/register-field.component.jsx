@@ -38,12 +38,14 @@ class RegisterField extends React.Component {
         const content = await response.json();
         console.log(content);
 
-        if (content != null) {
+        if (content != null && content.user != "") {
           window.location.href = "/";
+        } else {
+          alert("Username in use");
         }
       })();
     } else {
-      alert("passwords don't match");
+      alert("Passwords don't match");
     }
   }
   render() {
