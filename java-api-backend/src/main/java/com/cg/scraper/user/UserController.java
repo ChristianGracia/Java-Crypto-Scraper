@@ -32,8 +32,15 @@ public class UserController {
 		   
 		   String[] dataSplit = data.split(",");
 		   
+		   
+		   
 		   String user = dataSplit[0];
 		   String password = dataSplit[1].trim();
+		   if (!checkUserExists(user)) {
+			   UserInfo nullUser = new UserInfo("", "");
+			   return nullUser;
+			   
+		   }
 		   
 		   UserInfo newUser = new UserInfo(user, password);
 		   
@@ -44,7 +51,46 @@ public class UserController {
 		   return newUser;
 		   
 		}
-	   @CrossOrigin()
+	   private Boolean checkUserExists(String user) 
+	   {
+               UserInfo newUser = new UserInfo(user, "");
+		   
+		   try {
+		       
+		        	
+		        	Class.forName("com.mysql.cj.jdbc.Driver");
+		    		
+		    		Connection conn=null;
+		    		ArrayList<UserInfo> a= new ArrayList<UserInfo>();
+		    		JSONArray js=new JSONArray();
+		    		
+		    	
+		    		conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/cryptoscraper", "root", "Christian12!");
+		    	    
+		    		//object of statement to execute queries
+		    		Statement st=conn.createStatement();
+		    	
+		        	
+		    		String userQuery = "Select * from users Where username='" + newUser.getUser();
+		            ResultSet rs = st.executeQuery(userQuery);
+		            if (rs.next()) {
+		                return true;
+		            } else {
+		                return false;
+		            }
+		        
+
+
+		    } catch (Exception e) {
+		       return false;
+		    }
+
+	    }
+
+		
+		
+	
+	@CrossOrigin()
 	   @GetMapping("/login")
 	   @RequestMapping(value = "/login",method=RequestMethod.POST, consumes = {MediaType.ALL_VALUE}, produces = { MediaType.APPLICATION_JSON_VALUE })
 	   @ResponseBody
