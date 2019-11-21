@@ -1,15 +1,20 @@
 import React from "react";
 import CoinItem from "../../components/common/coin-item/coin-item.component";
+import { Button } from "react-bootstrap";
 
 class ServicePage extends React.Component {
   constructor() {
     super();
     this.state = {
-      coinArr: []
+      coinArr: [],
+      counter: 0
     };
   }
 
   componentDidMount() {
+    // if (this.props.params.login != true) {
+    //   this.props.history.push("/");
+    // }
     fetch("http://localhost:8080/all")
       .then(response => response.json())
       .then(jsonData => {
@@ -19,6 +24,11 @@ class ServicePage extends React.Component {
         console.error(error);
       });
   }
+
+  handleClick = () => {
+    fetch("http://localhost:8080/scrape");
+    console.log("click");
+  };
 
   render() {
     return (
@@ -31,11 +41,12 @@ class ServicePage extends React.Component {
             color: "#D4AF37"
           }}
         >
-          All scrapes <i class="fab fa-bitcoin"></i>
+          Coin Data <i className="fab fa-bitcoin"></i>
         </p>
+        <Button onClick={this.handleClick}>Request Scrape</Button>
 
-        {this.state.coinArr.map(({ pullId, ...otherProps }) => (
-          <CoinItem key={pullId} {...otherProps} />
+        {this.state.coinArr.map(({ ...otherProps }) => (
+          <CoinItem key={this.state.counter++} {...otherProps} />
         ))}
         <p style={{ paddingTop: 300 }}></p>
       </div>
