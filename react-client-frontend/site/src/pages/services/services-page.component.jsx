@@ -9,6 +9,7 @@ class ServicePage extends React.Component {
       coinArr: [],
       counter: 0
     };
+    this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -32,7 +33,13 @@ class ServicePage extends React.Component {
 
   render() {
     return (
-      <div>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center"
+        }}
+      >
         <p
           style={{
             fontWeight: "bold",
@@ -43,10 +50,18 @@ class ServicePage extends React.Component {
         >
           Coin Data <i className="fab fa-bitcoin"></i>
         </p>
-        <Button onClick={this.handleClick}>Request Scrape</Button>
+        <div style={{ padding: 30 }}>
+          <Button
+            onClick={() => {
+              this.handleClick();
+            }}
+          >
+            Request Scrape
+          </Button>
+        </div>
 
         {this.state.coinArr.map(({ ...otherProps }) => (
-          <CoinItem key={this.state.counter++} {...otherProps} />
+          <CoinItem key={this.state.counter} {...otherProps} />
         ))}
         <p style={{ paddingTop: 300 }}></p>
       </div>

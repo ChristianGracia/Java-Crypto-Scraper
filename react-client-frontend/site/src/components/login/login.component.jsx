@@ -19,6 +19,14 @@ class Login extends Component {
   onSubmit(e) {
     e.preventDefault();
 
+    if (this.state.user == "") {
+      alert("You have not entered a username");
+    }
+
+    if (this.state.password == "") {
+      alert("You have not entered a password");
+    }
+
     var url = new URL("http://localhost:8080/login");
 
     const options = {
@@ -33,14 +41,12 @@ class Login extends Component {
 
       const content = await response.json();
       console.log(content);
-      if (content) {
+      if (content == true) {
         window.location.href = "/services";
+      } else {
+        alert("Incorrect username or password");
       }
     })();
-
-    //  else {
-    //     alert("Incorrect username or password");
-    //   }
   }
   render() {
     return (
