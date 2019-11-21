@@ -112,7 +112,7 @@ Setting up front end
 
 Homepage **Completed**
 
-Register Page **completed**
+Register Page **Completed**
 
 ## **Day 16**
 
@@ -121,6 +121,14 @@ Breaking down stores more on trello board because they are too big.
 Broke down stories, 5 stories left to go till mvp
 
 ### Stories/Goals
+
+
+Scraper Imported into project and working **Completed**
+
+User can ask for a new scrape  **Completed**
+
+Scraper Integrated **Completed**
+
 
 Authentication
 
