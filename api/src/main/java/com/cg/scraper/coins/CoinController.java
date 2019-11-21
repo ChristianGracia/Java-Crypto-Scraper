@@ -1,4 +1,4 @@
-package com.cg.scraper;
+package com.cg.scraper.coins;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cg.scraper.scraper.Scraper;
+
 
 @RestController
 public class CoinController {
@@ -26,6 +28,14 @@ public class CoinController {
 	        List<CoinInfo> items = new ArrayList<>();
 	        coinRepository.findAll().forEach(items :: add);
 	        return items;
+	    }
+	   
+	   @CrossOrigin(origins = "http://localhost:3000")
+	   @GetMapping("/scrape")
+	   public void scrape() {
+		   Scraper.scrapeData();
+		   
+	      
 	    }
 	   
 

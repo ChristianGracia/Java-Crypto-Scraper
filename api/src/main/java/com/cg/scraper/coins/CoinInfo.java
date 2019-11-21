@@ -1,4 +1,4 @@
-package com.cg.scraper;
+package com.cg.scraper.coins;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
