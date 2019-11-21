@@ -7,7 +7,8 @@ class Login extends Component {
     super();
     this.state = {
       user: "",
-      password: ""
+      password: "",
+      loggedIn: false
     };
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -18,12 +19,14 @@ class Login extends Component {
   }
   onSubmit(e) {
     e.preventDefault();
+    let user = this.state.user;
+    let password = this.state.password;
 
-    if (this.state.user == "") {
+    if (user == "") {
       alert("You have not entered a username");
     }
 
-    if (this.state.password == "") {
+    if (password == "") {
       alert("You have not entered a password");
     }
 
@@ -34,19 +37,22 @@ class Login extends Component {
       accepts: new Headers({ "content-type": "application/json" })
     };
 
-    options.body = [this.state.user, this.state.password];
+    if (user && password != "") {
+      options.body = [user, password];
 
-    (async () => {
-      const response = await fetch(url, options);
+      (async () => {
+        const response = await fetch(url, options);
 
-      const content = await response.json();
-      console.log(content);
-      if (content == true) {
-        window.location.href = "/services";
-      } else {
-        alert("Incorrect username or password");
-      }
-    })();
+        const content = await response.json();
+        console.log(content);
+        if (content == true) {
+          this.setState({ loggedIn: true });
+          window.location.href = "/services";
+        } else {
+          alert("Incorrect username or password");
+        }
+      })();
+    }
   }
   render() {
     return (
