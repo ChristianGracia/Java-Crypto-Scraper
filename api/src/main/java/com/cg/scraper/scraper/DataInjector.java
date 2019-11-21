@@ -6,21 +6,13 @@ import java.util.Arrays;
 
 public class DataInjector {
 
- public static void injectData(String[] data) {
+ public static void injectCryptoData(String[] data, String query) {
 
   try {
    Class.forName("com.mysql.cj.jdbc.Driver");
 
    Connection conn = null;
    conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/CryptoScraper", "root", "Christian12!");
-
-   String query = " insert into coin_info (coin_name, price, price_change_percent, price_change, market_time, market_cap, volume, scrape_date)" +
-    " values (?, ?, ?, ?, ?, ?, ?, ?)";
-   
-   
-   //print to console
-   java.util.Date time = new java.util.Date();
-   System.out.println("Scrape Sucessful Time: " + time + " coin data injected to db\n");
 
    for (String item: data) {
     String[] valueArray = item.split(" ");
@@ -56,6 +48,11 @@ public class DataInjector {
     preparedStmt.setDate(8, date);
     
     preparedStmt.execute();
+    
+    //print to console
+    java.util.Date time = new java.util.Date();
+    System.out.println("Scrape Sucessful Time: " + time + " coin data injected to db\n");
+
    }
 
 
@@ -66,5 +63,41 @@ public class DataInjector {
   }
 
  }
+ 
+ public static void injectUserData(String user, String password, String newUserQuery) {
+
+	  try {
+	   Class.forName("com.mysql.cj.jdbc.Driver");
+
+	   Connection conn = null;
+	   conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/CryptoScraper", "root", "Christian12!");
+
+	    PreparedStatement preparedStmt = conn.prepareStatement(newUserQuery);
+
+	    //user
+	    preparedStmt.setString(1, user);
+
+	    //password
+	    preparedStmt.setString(2, password);
+
+	    //creation time
+	    long millis = System.currentTimeMillis();
+	    java.sql.Date date = new java.sql.Date(millis);
+
+	    preparedStmt.setDate(3, date);
+	    
+	    preparedStmt.execute();
+	    
+	    //print to console
+		java.util.Date time = new java.util.Date();
+		System.out.println("User creation Sucessful Time: " + time + " injected to db\n");
+
+	   conn.close();
+	  } catch (Exception e) {
+	   System.err.println("exception!");
+	   System.err.println(e.getMessage());
+	  }
+
+	 }
 
 }

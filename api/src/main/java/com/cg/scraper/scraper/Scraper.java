@@ -46,7 +46,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
          String tableText = coinTable.getText();
          String[] coinArray = manipulateData(tableText);
          
-     	 DataInjector.injectData(coinArray);
+         String query = " insert into coin_info (coin_name, price, price_change_percent, price_change, market_time, market_cap, volume, scrape_date)" +
+        		    " values (?, ?, ?, ?, ?, ?, ?, ?)";
+         
+     	 DataInjector.injectCryptoData(coinArray, query);
     }
     private String[] manipulateData(String tableText) {
 
