@@ -1,30 +1,12 @@
 import React from "react";
-import CoinItem from "../../components/common/coin-item/coin-item.component";
 import CoinQueries from "../../components/coin-queries/coin-queries.component";
 import { Button } from "react-bootstrap";
 
 class ServicesPage extends React.Component {
   constructor() {
     super();
-    this.state = {
-      coinArr: [0],
-      counter: 0
-    };
+    this.state = {};
     this.handleClick.bind(this);
-  }
-
-  componentDidMount() {
-    // if (this.props.params.login != true) {
-    //   this.props.history.push("/");
-    // }
-    // fetch("http://localhost:8080/all")
-    //   .then(response => response.json())
-    //   .then(jsonData => {
-    //     this.setState({ coinArr: jsonData });
-    //   })
-    //   .catch(error => {
-    //     console.error(error);
-    //   });
   }
 
   handleClick = () => {
@@ -62,11 +44,6 @@ class ServicesPage extends React.Component {
         </div>
 
         <CoinQueries />
-
-        {this.state.coinArr.map(({ ...otherProps }) => (
-          <CoinItem key={this.state.counter} {...otherProps} />
-        ))}
-        <p style={{ paddingTop: 300 }}></p>
       </div>
     );
   }
