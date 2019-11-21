@@ -18,10 +18,35 @@ class Login extends Component {
   }
   onSubmit(e) {
     e.preventDefault();
-    const userData = {
-      user: this.state.user,
-      password: this.state.password
+
+    if (this.state.user == "") {
+      alert("You have not entered a username");
+    }
+
+    if (this.state.password == "") {
+      alert("You have not entered a password");
+    }
+
+    var url = new URL("http://localhost:8080/login");
+
+    const options = {
+      method: "post",
+      accepts: new Headers({ "content-type": "application/json" })
     };
+
+    options.body = [this.state.user, this.state.password];
+
+    (async () => {
+      const response = await fetch(url, options);
+
+      const content = await response.json();
+      console.log(content);
+      if (content == true) {
+        window.location.href = "/services";
+      } else {
+        alert("Incorrect username or password");
+      }
+    })();
   }
   render() {
     return (

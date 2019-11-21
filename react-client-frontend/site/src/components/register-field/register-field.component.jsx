@@ -1,6 +1,8 @@
 import React from "react";
 import TextInput from "../common/text-input/text-input.component";
 
+// import { withRouter, browserHistory } from "react-router";
+
 import { Button } from "react-bootstrap";
 class RegisterField extends React.Component {
   constructor() {
@@ -31,10 +33,14 @@ class RegisterField extends React.Component {
       options.body = [this.state.user, this.state.password];
 
       (async () => {
-        const rawResponse = await fetch(url, options);
+        const response = await fetch(url, options);
 
-        const content = await rawResponse.json();
+        const content = await response.json();
         console.log(content);
+
+        if (content != null) {
+          window.location.href = "/";
+        }
       })();
     } else {
       alert("passwords don't match");
