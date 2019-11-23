@@ -9,8 +9,7 @@ class Login extends Component {
     super(props);
     this.state = {
       user: "",
-      password: "",
-      loggedIn: false
+      password: ""
     };
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -26,47 +25,21 @@ class Login extends Component {
 
     if (user == "") {
       alert("You have not entered a username");
-    }
-
-    if (password == "") {
+    } else if (password == "") {
       alert("You have not entered a password");
     }
-
-    if (this.props.login(user, password)) {
+    this.props.login(user, password);
+    this.setState({ user: "", password: "" });
+  }
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.isLoginSuccess) {
       window.location.href = "/coins";
     }
-
-    // var url = new URL("http://localhost:8080/login");
-
-    // const options = {
-    //   method: "post",
-    //   accepts: new Headers({ "content-type": "application/json" })
-    // };
-
-    // if (user && password != "") {
-    //   options.body = [user, password];
-
-    //   (async () => {
-    //     const response = await fetch(url, options);
-
-    //     const content = await response.json();
-    //     console.log(content);
-    //     if (content == true) {
-    //       this.setState({ loggedIn: true });
-    //       this.props.login(user, password);
-    //       // window.location.href = "/coins";
-    //     } else {
-    //       alert("Incorrect username or password");
-    //     }
-    //   })();
-    // }
-  }
-
-  componentDidUpdate(prevProps) {
-    if (prevProps.value !== this.props.value) {
-      alert(prevProps.value);
+    if (nextProps.loginError) {
+      alert("Incorrect password");
     }
   }
+
   render() {
     return (
       <div className="login">
