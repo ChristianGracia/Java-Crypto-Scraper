@@ -33,13 +33,6 @@ public class UserController {
 		   String user = dataSplit[0];
 		   String password = dataSplit[1].trim();
 		   
-		
-		
-//		   UserInfo newUser = new UserInfo(user,  new BCryptPasswordEncoder().encode(password));
-		   
-//		   PasswordGenerator generator = new PasswordGenerator();
-//		   String encryptedPassword = generator.generatePassword(8);
-//		   UserInfo newUser = new UserInfo(user,  BCrypt.hashpw(password, BCrypt.gensalt()));
 		   UserInfo newUser = new UserInfo(user, BCrypt.hashpw(password, BCrypt.gensalt()));
 	
 		   
@@ -78,7 +71,7 @@ public class UserController {
 		        	
 		    		String userQuery = "Select * from users Where username='" + user.getUser() + "'";
 		            ResultSet rs = st.executeQuery(userQuery);
-		            if (rs.next() && BCrypt.checkpw(password, rs.getString(2))) {
+		            if (rs.next() && BCrypt.checkpw(user.getUser(), rs.getString(2))) {
 		        
 		            		  return true;	           
 		            }
