@@ -32,10 +32,11 @@ public class UserController {
 
 		   String user = dataSplit[0];
 		   String password = dataSplit[1].trim();
-			   UserInfo newUser = new UserInfo(user, password);
-
-				   String newUserQuery = " insert into users (username, pass, create_date)" + "values (?, ?, ?)";
-				    return DataInjector.injectUserData(newUser.getUser(), newUser.getPassword(), newUserQuery);
+		   
+		   UserInfo newUser = new UserInfo(user, password);
+		   
+		   String newUserQuery = " insert into users (username, pass, create_date)" + "values (?, ?, ?)";
+		   return DataInjector.injectUserData(newUser.getUser(), newUser.getPassword(), newUserQuery);
 
 		}
 

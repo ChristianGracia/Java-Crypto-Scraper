@@ -101,9 +101,9 @@ public class DataInjector {
 	  } catch (Exception e) {
 	   System.err.println("exception!");
 	   System.err.println(e.getMessage());
-	   return false;
-	  }
 
+	  }
+	   return false;
 	 }
 
 }
