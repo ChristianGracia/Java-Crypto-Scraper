@@ -146,6 +146,10 @@ Encrypted Passwords in db **Completed**
 
 Login and register with encryption **Completed**
 
+Routes protected **Completed**
+
+Redux added **Completed**
+
 
 
 
