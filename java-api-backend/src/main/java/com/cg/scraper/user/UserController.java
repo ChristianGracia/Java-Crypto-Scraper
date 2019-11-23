@@ -4,11 +4,11 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.ArrayList;
 
-
-import org.json.simple.JSONArray;
+import org.passay.PasswordGenerator;
 import org.springframework.http.MediaType;
+import org.springframework.security.crypto.bcrypt.BCrypt;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -33,7 +33,15 @@ public class UserController {
 		   String user = dataSplit[0];
 		   String password = dataSplit[1].trim();
 		   
-		   UserInfo newUser = new UserInfo(user, password);
+		
+		
+//		   UserInfo newUser = new UserInfo(user,  new BCryptPasswordEncoder().encode(password));
+		   
+//		   PasswordGenerator generator = new PasswordGenerator();
+//		   String encryptedPassword = generator.generatePassword(8);
+//		   UserInfo newUser = new UserInfo(user,  BCrypt.hashpw(password, BCrypt.gensalt()));
+		   UserInfo newUser = new UserInfo(user, BCrypt.hashpw(password, BCrypt.gensalt()));
+	
 		   
 		   String newUserQuery = " insert into users (username, pass, create_date)" + "values (?, ?, ?)";
 		   return DataInjector.injectUserData(newUser.getUser(), newUser.getPassword(), newUserQuery);
@@ -45,18 +53,17 @@ public class UserController {
 	   @RequestMapping(value = "/login",method=RequestMethod.POST, consumes = {MediaType.ALL_VALUE}, produces = { MediaType.APPLICATION_JSON_VALUE })
 	   @ResponseBody
 	   public Boolean login(@RequestBody String data) {
-		   System.out.println(data);
-		   
            String[] dataSplit = data.split(",");
 		   
-		   String user = dataSplit[0];
+		   String username = dataSplit[0];
 		   String password = dataSplit[1].trim();
 		   
-		   UserInfo newUser = new UserInfo(user, password);
+		   
+		   UserInfo user = new UserInfo(username, password);
 		   Boolean check = null;
 		   
 		   try {
-		        if (newUser.getPassword() != null && newUser.getUser() != null) {
+		        if (user.getPassword() != null && user.getUser() != null) {
 		        	
 		        	
 		        	Class.forName("com.mysql.cj.jdbc.Driver");
@@ -69,12 +76,14 @@ public class UserController {
 		    		Statement st=conn.createStatement();
 		    	
 		        	
-		    		String userQuery = "Select * from users Where username='" + newUser.getUser() + "' and pass='" + newUser.getPassword() + "'";
+		    		String userQuery = "Select * from users Where username='" + user.getUser() + "'";
 		            ResultSet rs = st.executeQuery(userQuery);
-		            if (rs.next()) {
-		                check = true;
-		            } else {
-		                check = false;
+		            if (rs.next() && BCrypt.checkpw(password, rs.getString(2))) {
+		        
+		            		  return true;	           
+		            }
+                    else {
+		               return false;
 		            }
 		        }
 
@@ -85,7 +94,6 @@ public class UserController {
 		   
 	        return check;
 	    }
-	  
+ 
 }
-
 
