@@ -135,6 +135,19 @@ Login **Completed**
 
 Store account info in sql db **Completed**
 
+## **Day 18**
+
+Finishing up
+
+### Stories/Goals
+
+
+Encrypted Passwords in db **Completed**
+
+Login and register with encryption **Completed**
+
+
+
 
 
 
