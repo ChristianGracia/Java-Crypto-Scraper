@@ -3,6 +3,7 @@ import TextInput from "../../components/common/text-input/text-input.component";
 import { Button } from "react-bootstrap";
 import { connect } from "react-redux";
 import { login } from "../../reducers/reducer";
+import { withRouter } from "react-router";
 
 class Login extends Component {
   constructor(props) {
@@ -33,7 +34,12 @@ class Login extends Component {
   }
   componentWillReceiveProps(nextProps) {
     if (nextProps.isLoginSuccess) {
-      window.location.href = "/coins";
+      // window.location.href = "/coins";
+
+      this.props.history.push({
+        pathname: "/coins",
+        state: { isLoginSuccess: true }
+      });
     }
     if (nextProps.loginError) {
       alert("Incorrect password");
@@ -90,4 +96,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Login));
