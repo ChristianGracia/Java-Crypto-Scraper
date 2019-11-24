@@ -30,7 +30,7 @@ function App() {
         <PrivateRoute exact path="/coins" component={ServicesPage} />
       </Switch>
       <Switch>
-        <PrivateRoute exact path="/single" component={SingleCoinPage} />
+        <PrivateRoute exact path="/single-coin" component={SingleCoinPage} />
       </Switch>
     </div>
   );

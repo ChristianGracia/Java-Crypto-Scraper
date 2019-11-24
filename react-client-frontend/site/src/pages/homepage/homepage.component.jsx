@@ -54,17 +54,16 @@ class HomePage extends React.Component {
             className="fab fa-bitcoin fa-spin"
             style={{
               fontSize: 20,
-              color: "#F8F141",
-              marginTop: 4
+              color: "#F8F141"
             }}
           ></i>
         </p>
 
         <Login />
-        <div style={{ padding: "1vh" }}></div>
+
         <div
           className="ml-auto mr-auto"
-          style={{ display: "flex", flexDirection: "column" }}
+          style={{ display: "flex", flexDirection: "column", marginTop: 3 }}
         >
           <div style={{ textAlign: "center" }}>
             <span style={{ color: "white", fontWeight: "bold" }}>
