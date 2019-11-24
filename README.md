@@ -2,7 +2,7 @@
 This repo contains a web scraper written in Java that usese selenium to pull stock data from yahoo finance.
 
 ## Uses
-Java, React, Sass, MySql, Spring Boot, Selenium, and more
+Java, React, Redux, Sass, MySql, Spring Boot, Selenium, and more
 
 
 
