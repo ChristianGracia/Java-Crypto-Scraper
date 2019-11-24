@@ -6,12 +6,10 @@ class CoinDropdown extends React.Component {
   constructor() {
     super();
 
-    this.state = { coin: "", coinArr: [] };
+    this.state = { coin: "", coinArr: [], singleCoinArr: [] };
     this.onSelect = this.onSelect.bind(this);
   }
-  onSelect(e) {
-    let name = e.target.name;
-    console.log(name);
+  componentDidMount() {
     var url = new URL("http://localhost:8080/all/");
 
     (async () => {
@@ -29,22 +27,46 @@ class CoinDropdown extends React.Component {
           temp = [];
         }
       }
-      console.log(scrapeArray);
 
-      // this.setState({
-      //   coinArr: temp
-      // });
+      this.setState({
+        coinArr: scrapeArray
+      });
     })();
+  }
+
+  onSelect(e) {
+    let index = parseInt(e.target.name);
+    console.log(index);
+
+    let arr = [];
+    console.log(this.state.coinArr);
+
+    // for (let i = index; i < this.state.coinArr.length; i += 10) {
+    //   arr.push(this.state.coinArr[i]);
+    // }
+    // console.log(arr);
+
+    this.state.coinArr.forEach(x => arr.push(x[index]));
+    this.setState({
+      singleCoinArr: arr
+    });
   }
   render() {
     return (
-      <div className="m-auto">
+      <div
+        className="m-auto"
+        style={{
+          display: "flex",
+          alignItems: "center",
+          flexDirection: "column"
+        }}
+      >
         <div>
           <DropdownButton id="dropdown-basic-button" title="Coin Select">
             <Dropdown.Item name="9" onClick={this.onSelect}>
               Bitcoin
             </Dropdown.Item>
-            <Dropdown.Item name="6" onClick={this.onSelect}>
+            <Dropdown.Item name="5" onClick={this.onSelect}>
               Litecoin
             </Dropdown.Item>
             <Dropdown.Item name="8" onClick={this.onSelect}>
@@ -65,7 +87,7 @@ class CoinDropdown extends React.Component {
             <Dropdown.Item name="6" onClick={this.onSelect}>
               Bitcoin Cash
             </Dropdown.Item>
-            <Dropdown.Item name="5" onClick={this.onSelect}>
+            <Dropdown.Item name="4" onClick={this.onSelect}>
               TRX
             </Dropdown.Item>
             <Dropdown.Item name="7" onClick={this.onSelect}>
@@ -74,11 +96,21 @@ class CoinDropdown extends React.Component {
           </DropdownButton>
         </div>
         <div>
-          {this.state.coinArr.map((element, { pullId, ...otherProps }) =>
-            element["name"] == this.state.name ? (
-              <CoinItem key={pullId} {...otherProps} />
-            ) : null
-          )}
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              flexWrap: "wrap",
+              justifyContent: "center",
+              marginTop: 40
+            }}
+          >
+            {this.state.singleCoinArr
+              .reverse()
+              .map(({ pullId, ...otherProps }) => (
+                <CoinItem key={pullId} id={pullId} {...otherProps} />
+              ))}
+          </div>
         </div>
       </div>
     );
