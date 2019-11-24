@@ -8,7 +8,8 @@ const CoinItem = ({
   marketCap,
   marketTime,
   volume,
-  scrapeDate
+  scrapeDate,
+  id
 }) => (
   <div style={{ textAlign: "center", padding: 10 }}>
     <p>
@@ -25,7 +26,7 @@ const CoinItem = ({
         />{" "}
       </span>{" "}
       <span style={{ backgroundColor: "white", padding: 5, borderRadius: 16 }}>
-        Scrape Date: {scrapeDate} Market Time: {marketTime}{" "}
+        Scrape Date: {scrapeDate} Market Time: {marketTime} Scrape # {id}
       </span>
     </p>
     <span>

@@ -9,7 +9,7 @@ export default class ParticleSmall extends Component {
           params={{
             particles: {
               number: {
-                value: 12
+                value: this.props.number
               },
               size: {
                 value: 3
@@ -17,7 +17,7 @@ export default class ParticleSmall extends Component {
               line_linked: {
                 shadow: {
                   enable: true,
-                  color: "#F8F141",
+                  color: this.props.color,
                   blur: 5
                 }
               }

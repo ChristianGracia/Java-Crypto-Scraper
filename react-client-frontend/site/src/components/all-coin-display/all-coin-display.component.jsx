@@ -1,14 +1,11 @@
 import React from "react";
-import CoinFullScrape from "../common/coin-full-scrape/coin-full-scrape.component";
 import CoinItem from "../common/coin-item/coin-item.component";
 
 class AllCoinDisplay extends React.Component {
   constructor() {
     super();
     this.state = {
-      coinArr: [],
-      counter: 0,
-      scrapes: []
+      coinArr: []
     };
   }
 
@@ -21,12 +18,11 @@ class AllCoinDisplay extends React.Component {
 
         for (let i = 1; i <= jsonData.length; i++) {
           temp.push(jsonData[i - 1]);
-          if (i % 10 == 0) {
+          if (i % 10 === 0) {
             scrapeArray.push(temp);
             temp = [];
           }
         }
-
         this.setState({ coinArr: scrapeArray });
       })
       .catch(error => {
@@ -41,15 +37,19 @@ class AllCoinDisplay extends React.Component {
           display: "flex",
           flexDirection: "row",
           flexWrap: "wrap",
-          justifyContent: "center"
+          justifyContent: "center",
+          marginTop: 40
         }}
       >
-        {this.state.coinArr.map(element =>
-          element.map(({ pullId, ...otherProps }) => (
-            <CoinItem key={pullId} {...otherProps} />
-          ))
-        )}
-        <CoinFullScrape />
+        {this.state.coinArr
+          .reverse()
+          .map(element =>
+            element
+              .reverse()
+              .map(({ pullId, ...otherProps }) => (
+                <CoinItem key={pullId} id={pullId} {...otherProps} />
+              ))
+          )}
       </div>
     );
   }
