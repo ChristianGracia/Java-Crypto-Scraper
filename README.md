@@ -158,6 +158,8 @@ add coin images **Completed**
 
 # V1.0 Minimum Viable Product Complete!
 
+11-23-2019
+
 could have finished sooner but went on vacation during a sprint. 
 
 will keep adding to this project but have reached my goal
