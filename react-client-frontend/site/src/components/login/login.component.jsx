@@ -3,6 +3,7 @@ import TextInput from "../../components/common/text-input/text-input.component";
 import { Button } from "react-bootstrap";
 import { connect } from "react-redux";
 import { login } from "../../reducers/reducer";
+import { withRouter } from "react-router";
 
 class Login extends Component {
   constructor(props) {
@@ -10,7 +11,7 @@ class Login extends Component {
     this.state = {
       user: "",
       password: "",
-      loggedIn: false
+      isLoginSuccess: false
     };
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -24,55 +25,41 @@ class Login extends Component {
     let user = this.state.user;
     let password = this.state.password;
 
-    if (user == "") {
+    if (user === "") {
       alert("You have not entered a username");
-    }
-
-    if (password == "") {
+    } else if (password === "") {
       alert("You have not entered a password");
     }
-
-    if (this.props.login(user, password)) {
-      window.location.href = "/coins";
-    }
-
-    // var url = new URL("http://localhost:8080/login");
-
-    // const options = {
-    //   method: "post",
-    //   accepts: new Headers({ "content-type": "application/json" })
-    // };
-
-    // if (user && password != "") {
-    //   options.body = [user, password];
-
-    //   (async () => {
-    //     const response = await fetch(url, options);
-
-    //     const content = await response.json();
-    //     console.log(content);
-    //     if (content == true) {
-    //       this.setState({ loggedIn: true });
-    //       this.props.login(user, password);
-    //       // window.location.href = "/coins";
-    //     } else {
-    //       alert("Incorrect username or password");
-    //     }
-    //   })();
-    // }
+    this.props.login(user, password);
+    this.setState({ user: "", password: "" });
   }
-
   componentDidUpdate(prevProps) {
-    if (prevProps.value !== this.props.value) {
-      alert(prevProps.value);
+    if (this.props.isLoginSuccess != prevProps.isLoginSuccess) {
+      this.props.history.push({
+        pathname: "/coins",
+        state: { isLoginSuccess: true }
+      });
     }
   }
+
   render() {
     return (
       <div className="login">
         <div className="container">
           <div className="row">
             <div className="col-xs m-auto">
+              {this.props.loginError && (
+                <div
+                  style={{
+                    color: "red",
+                    fontWeight: "bold",
+                    textAlign: "center",
+                    marginBottom: 5
+                  }}
+                >
+                  {this.props.loginError.message}
+                </div>
+              )}
               <form onSubmit={this.onSubmit}>
                 <TextInput
                   placeholder="Username"
@@ -117,4 +104,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Login));
