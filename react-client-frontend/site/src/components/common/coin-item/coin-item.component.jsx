@@ -12,7 +12,18 @@ const CoinItem = ({
 }) => (
   <div style={{ textAlign: "center", padding: 10 }}>
     <p>
-      <span style={{ fontWeight: "bold", color: "#F8F141" }}>{name}</span>{" "}
+      <span style={{ fontWeight: "bold", color: "#F8F141" }}>
+        {name}{" "}
+        <img
+          src={require(`../../../assets/${name}.png`)}
+          width="20px"
+          height="20px"
+          style={{
+            transform: "translatey(0px)",
+            animation: "float 6s ease-in-out infinite"
+          }}
+        />{" "}
+      </span>{" "}
       <span style={{ backgroundColor: "white", padding: 5, borderRadius: 16 }}>
         Scrape Date: {scrapeDate} Market Time: {marketTime}{" "}
       </span>
