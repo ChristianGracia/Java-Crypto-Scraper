@@ -41,7 +41,7 @@ const AboutPage = () => (
         The scraper pulls price data every 24 hours or when a user requests a
         new scrape and stores all values in a sql database.
       </p>
-      <p>
+      <p style={{ color: "#F8F141", fontWeight: "bold" }}>
         Code for this site:{" "}
         <a
           style={{ color: "white" }}
@@ -50,7 +50,7 @@ const AboutPage = () => (
           Here
         </a>
       </p>
-      <p>
+      <p style={{ color: "#F8F141", fontWeight: "bold" }}>
         Solo Agile Trello board:{" "}
         <a
           style={{ color: "white" }}
