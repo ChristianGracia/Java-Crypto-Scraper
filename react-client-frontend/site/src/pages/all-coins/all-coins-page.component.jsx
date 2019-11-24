@@ -2,12 +2,8 @@ import React, { Component } from "react";
 import "./all-coins-page.styles.scss";
 import AllCoinDisplay from "../../components/all-coin-display/all-coin-display.component";
 import { connect } from "react-redux";
-import PropTypes from "prop-types";
 
 class AllCoinsPage extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return (
       <div

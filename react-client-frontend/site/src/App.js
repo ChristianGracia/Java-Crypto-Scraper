@@ -20,11 +20,8 @@ function App() {
       <Switch>
         {/* Pages */}
         <Route exact path="/" component={HomePage} />
-        {/* <Route exact path="/coins" component={ServicesPage} /> */}
         <Route exact path="/about" component={AboutPage} />
         <Route exact path="/register" component={RegisterPage} />
-        {/* <Route exact path="/all-scrapes" component={AllCoinsPage} /> */}
-        {/* <Route exact path="/single-coin" component={SingleCoinPage} /> */}
       </Switch>
       <Switch>
         <PrivateRoute exact path="/all-scrapes" component={AllCoinsPage} />

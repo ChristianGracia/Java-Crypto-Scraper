@@ -10,7 +10,8 @@ class Login extends Component {
     super(props);
     this.state = {
       user: "",
-      password: ""
+      password: "",
+      isLoginSuccess: false
     };
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -24,25 +25,20 @@ class Login extends Component {
     let user = this.state.user;
     let password = this.state.password;
 
-    if (user == "") {
+    if (user === "") {
       alert("You have not entered a username");
-    } else if (password == "") {
+    } else if (password === "") {
       alert("You have not entered a password");
     }
     this.props.login(user, password);
     this.setState({ user: "", password: "" });
   }
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.isLoginSuccess) {
-      // window.location.href = "/coins";
-
+  componentDidUpdate(prevProps) {
+    if (this.props.isLoginSuccess != prevProps.isLoginSuccess) {
       this.props.history.push({
         pathname: "/coins",
         state: { isLoginSuccess: true }
       });
-    }
-    if (nextProps.loginError) {
-      alert("Incorrect password");
     }
   }
 
@@ -52,6 +48,18 @@ class Login extends Component {
         <div className="container">
           <div className="row">
             <div className="col-xs m-auto">
+              {this.props.loginError && (
+                <div
+                  style={{
+                    color: "red",
+                    fontWeight: "bold",
+                    textAlign: "center",
+                    marginBottom: 5
+                  }}
+                >
+                  {this.props.loginError.message}
+                </div>
+              )}
               <form onSubmit={this.onSubmit}>
                 <TextInput
                   placeholder="Username"

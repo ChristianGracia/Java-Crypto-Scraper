@@ -9,6 +9,7 @@ import javax.persistence.Id;
 public class CoinInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    private int pullId;
     private String coinName;
     private String price;
     private String priceChange;
@@ -17,7 +18,7 @@ public class CoinInfo {
     private String marketCap;
     private String volume;
     private String scrapeDate;
-    private int pullId;
+
     
     public CoinInfo() {
     	super();
