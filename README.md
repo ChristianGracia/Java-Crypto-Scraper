@@ -156,12 +156,13 @@ add coin images **Completed**
 
 
 
-# minimum viable product complete!!!!
+# V1.0 Minimum Viable Product Complete!
 
 could have finished sooner but went on vacation during a sprint. 
 
 will keep adding to this project but have reached my goal
 
+https://twitter.com/CG_CODING/status/1198478865901015041?s=20
 
 
 
