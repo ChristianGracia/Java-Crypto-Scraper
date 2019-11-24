@@ -150,6 +150,18 @@ Routes protected **Completed**
 
 Redux added **Completed**
 
+View by coin  **Completed**
+
+add coin images **Completed**
+
+
+
+# minimum viable product complete!!!!
+
+could have finished sooner but went on vacation during a sprint. 
+
+will keep adding to this project but have reached my goal
+
 
 
 
