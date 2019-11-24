@@ -48,7 +48,7 @@ class RegisterField extends React.Component {
   }
   render() {
     return (
-      <div className="m-auto" style={{ width: "40%" }}>
+      <div className="m-auto" style={{ width: "80%" }}>
         <form onSubmit={this.onSubmit}>
           <TextInput
             placeholder="Username"

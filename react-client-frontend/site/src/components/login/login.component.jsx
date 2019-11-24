@@ -34,7 +34,7 @@ class Login extends Component {
     this.setState({ user: "", password: "" });
   }
   componentDidUpdate(prevProps) {
-    if (this.props.isLoginSuccess != prevProps.isLoginSuccess) {
+    if (this.props.isLoginSuccess !== prevProps.isLoginSuccess) {
       this.props.history.push({
         pathname: "/coins",
         state: { isLoginSuccess: true }
