@@ -1,1 +1,3 @@
-## front end react/redux
+## front end client
+
+React/Redux
