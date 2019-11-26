@@ -74,7 +74,7 @@ inject scraped data into db **Completed**
 
 Scraper can now inject the data it scrapes into db
 
-scraper fully functional, logs into yahoo finance and navigates to my porfolio where it gets the CoinName, Price, PercentChange, PriceChange, MarketTime, MarketCap, Volume, ScrapeDate for my 10 crypto currencies and stores it in my sql db in less then a minute
+Scraper fully functional, logs into yahoo finance and navigates to my porfolio where it gets the CoinName, Price, PercentChange, PriceChange, MarketTime, MarketCap, Volume, ScrapeDate for my 10 crypto currencies and stores it in my sql db in less then a minute
 
 ## **Day 7**
 
