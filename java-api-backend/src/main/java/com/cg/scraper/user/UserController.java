@@ -70,11 +70,15 @@ public class UserController {
 		    	
 		        	
 		    		String userQuery = "Select * from users Where username='" + user.getUser() + "'";
-		            ResultSet rs = st.executeQuery(userQuery);
-		            if (rs.next() && BCrypt.checkpw(password, rs.getString(2))) {
+					ResultSet rs = st.executeQuery(userQuery);
+					
+					if (rs.next() && BCrypt.checkpw(password, rs.getString(2))) 
+					{
 		               return true;	           
-		            }
-                    else {
+					}
+					
+					else 
+					{
 		               return false;
 		            }
 		        }

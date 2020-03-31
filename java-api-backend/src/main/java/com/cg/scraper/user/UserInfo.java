@@ -20,7 +20,6 @@ public class UserInfo {
     	this.setUser(user);
     	this.setPassword(password);
     
-
     }
     
     public String getUser() {
