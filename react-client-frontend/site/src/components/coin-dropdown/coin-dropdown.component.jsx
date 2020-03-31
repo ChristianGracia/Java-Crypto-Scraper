@@ -36,15 +36,7 @@ class CoinDropdown extends React.Component {
 
   onSelect(e) {
     let index = parseInt(e.target.name);
-    console.log(index);
-
     let arr = [];
-    console.log(this.state.coinArr);
-
-    // for (let i = index; i < this.state.coinArr.length; i += 10) {
-    //   arr.push(this.state.coinArr[i]);
-    // }
-    // console.log(arr);
 
     this.state.coinArr.forEach(x => arr.push(x[index]));
     this.setState({

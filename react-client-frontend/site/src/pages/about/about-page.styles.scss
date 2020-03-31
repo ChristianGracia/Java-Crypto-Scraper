@@ -1,6 +1,15 @@
 .about-header {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .info {
   color: "white";
+}
+.about-text {
+  text-align: center;
+  font-weight: bold;
+  color: #f8f141;
+  font-size: 30px;
 }

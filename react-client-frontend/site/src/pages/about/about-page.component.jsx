@@ -4,24 +4,8 @@ import ParticleSmall from "../../components/common/particle/particle.component";
 
 const AboutPage = () => (
   <div>
-    <div
-      className="about-header"
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center"
-      }}
-    >
-      <span
-        style={{
-          textAlign: "center",
-          fontWeight: "bold",
-          color: "#F8F141",
-          fontSize: 30
-        }}
-      >
-        About
-      </span>
+    <div className="about-header">
+      <span className="about-text">About</span>
       <div style={{ padding: 30 }}></div>
 
       <div className="m-auto" style={{ width: 320 }}>
