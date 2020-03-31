@@ -45,14 +45,7 @@ class CoinDropdown extends React.Component {
   }
   render() {
     return (
-      <div
-        className="m-auto"
-        style={{
-          display: "flex",
-          alignItems: "center",
-          flexDirection: "column"
-        }}
-      >
+      <div className="m-auto container">
         <div>
           <DropdownButton id="dropdown-basic-button" title="Coin Select">
             <Dropdown.Item name="9" onClick={this.onSelect}>
@@ -88,15 +81,7 @@ class CoinDropdown extends React.Component {
           </DropdownButton>
         </div>
         <div>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              flexWrap: "wrap",
-              justifyContent: "center",
-              marginTop: 40
-            }}
-          >
+          <div className="list-container">
             {this.state.singleCoinArr
               .reverse()
               .map(({ pullId, ...otherProps }) => (

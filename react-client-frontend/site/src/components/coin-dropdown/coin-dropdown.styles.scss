@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.list-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
