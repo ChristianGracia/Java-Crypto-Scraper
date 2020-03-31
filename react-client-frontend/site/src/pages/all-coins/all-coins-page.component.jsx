@@ -6,23 +6,8 @@ import { connect } from "react-redux";
 class AllCoinsPage extends Component {
   render() {
     return (
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center"
-        }}
-      >
-        <span
-          style={{
-            textAlign: "center",
-            fontWeight: "bold",
-            color: "#F8F141",
-            fontSize: 30
-          }}
-        >
-          All Scrapes
-        </span>
+      <div className="container">
+        <span className="header">All Scrapes</span>
         <AllCoinDisplay />
       </div>
     );
